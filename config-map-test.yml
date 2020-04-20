@@ -1,0 +1,26 @@
+#configMap example using env
+# resource requirements
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-config-map-app
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: my-configmap-container
+    image: busybox
+    command: ['sh', '-c', "echo $(MY_VAR) && sleep 1200"]
+    resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+    env:
+    - name: MY_VAR
+      valueFrom:
+        configMapKeyRef:
+          name: my-config-map
+          key: key-one

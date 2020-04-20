@@ -1,0 +1,20 @@
+# Basic pod with custom namespace
+# Pre-requisite - namespace need to be availavle
+
+###########################
+# kubectl create ns my-ns
+###########################
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: basic-container-pod
+  namespace: my-ns
+spec:
+  containers:
+  - name: basic-container-config
+    image: busybox
+    command: ['echo']
+    args: ['Hello Kubernetes Arguments!!!']
+  restartPolicy: Never
+

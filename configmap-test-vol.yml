@@ -1,0 +1,23 @@
+# configMap example using volumeMount
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-vol-test
+  labels:
+    app: myapp
+  annotations:
+    email: "sobisw@gmail.com"
+    author: "Sourav Biswas"
+spec:
+  containers:
+  - name: configmap-vol-con
+    image: busybox
+    command: ['sh', '-c', 'ls /etc/config && sleep 3000']
+    volumeMounts:
+      - mountPath: /etc/config
+        name: config-volume
+  volumes:
+  - name: config-volume
+    configMap: 
+      name: my-config-map
+    

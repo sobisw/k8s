@@ -1,0 +1,8 @@
+# configMap example
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config-map
+data:
+  key-one: myvalue
+  key-two: yourvalue
