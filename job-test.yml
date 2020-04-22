@@ -1,0 +1,13 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: pi-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi-con
+        image: perl
+        command: ["perl", "-Mbignum=pbi", "-wle", "print bpi(1000)"]
+      restartPolicy: Never
+  backoffLimit: 4
