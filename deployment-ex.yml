@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nginx-dep
+  namespace: rs-dep-test
+spec:
+  replicas: 3
+  selector:  
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        environment: dev
+    spec:
+      containers:
+      - name: nginx-con
+        image: nginx

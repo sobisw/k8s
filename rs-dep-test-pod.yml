@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: rs-dep-test
+  name: nginx-indivisual
+  labels:
+    app: nginx
+    environment: prod
+spec:
+  containers:
+    - name: nginx-con-indivisual
+      image: nginx
