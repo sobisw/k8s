@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: nginx-con
-        image: nginx:perl
+        image: nginx
